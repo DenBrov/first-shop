@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'mainapp',
-    'authapp',
+    'mainapp'
 ]
 
 MIDDLEWARE = [
@@ -125,8 +124,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = "media"
-
-AUTH_USER_MODEL = 'authapp.user'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
