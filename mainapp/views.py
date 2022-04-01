@@ -4,6 +4,7 @@ from django.shortcuts import render
 from mainapp.models import Product, ProductCategory
 
 
+
 def index(request):
     context = {
         'title': 'Shop',
@@ -20,3 +21,4 @@ def products(request, id=None):
 
 def base(request):
     return render(request, 'mainapp/base.html')
+
