@@ -37,14 +37,14 @@ def register(request):
 
 def profile(request):
     if request.method == 'POST':
-        form = UserProfileForm(data=request.POST, instance=request.user)
+        form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('auth:profile'))
     else:
         form = UserProfileForm(instance=request.user)
     context = {
-        'form': form ,
+        'form': form,
         'baskets': Basket.objects.all(),
     }
     return render(request, 'authapp/profile.html', context)
