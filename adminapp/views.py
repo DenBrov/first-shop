@@ -14,6 +14,7 @@ def admin_users(request):
 
 #CREATE
 def admin_users_create(request):
+    
     return render(request, 'adminapp/admin-users-create.html')
 
 
