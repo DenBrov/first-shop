@@ -2,6 +2,7 @@ from django.db import models
 
 
 class ProductCategory(models.Model):
+    objects = models.Manager()
     name = models.CharField(max_length=64, unique=True)
     description = models.TextField(blank=True)
 
@@ -13,6 +14,7 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
+    objects = models.Manager()
     name = models.CharField(max_length=256)
     description = models.TextField(blank=True)
     short_description = models.CharField(max_length=64, blank=True)
