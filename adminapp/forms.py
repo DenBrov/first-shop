@@ -1,6 +1,8 @@
 from django import forms
+from django.forms import ModelForm
 from authapp.forms import UserRegisterForm, UserProfileForm
 from authapp.models import User
+from mainapp.models import Product
 
 
 class UserAdminRegistrationForm(UserRegisterForm):
@@ -20,3 +22,8 @@ class UserAdminProfileForm(UserProfileForm):
         super(UserAdminProfileForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['readonly'] = False
         self.fields['email'].widget.attrs['readonly'] = False
+
+class ProductAdminForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = ('name', 'price', 'short_description', 'description', 'quantity', 'category')

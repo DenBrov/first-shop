@@ -5,8 +5,10 @@ from django.urls import reverse
 
 from authapp.models import User
 from adminapp.forms import UserAdminRegistrationForm, UserAdminProfileForm
+from mainapp.models import Product
 
-@user_passes_test(lambda u: u.is_superuser)
+
+@user_passes_test(lambda u: u.is_superuser, login_url='/')
 def index(request):
     return render(request, 'adminapp/index.html')
 
@@ -58,3 +60,8 @@ def admin_users_restore(request, user_id):
     user.is_active = True
     user.save()
     return HttpResponseRedirect(reverse('admin_staff:admin_users'))
+
+# PRODUCT_READ
+def admin_products(request):
+    context = {'products': Product.objects.all()}
+    return render(request, 'adminapp/admin-product-read.html', context)
